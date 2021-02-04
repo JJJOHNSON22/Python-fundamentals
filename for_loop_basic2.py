@@ -20,14 +20,11 @@ def count_positives(num_list):
     count = 0
     positive_number_count = 0
     for x in num_list:
-        while (count < len(num_list) - 1):
-            if (x > 0):
-                positive_number_count += 1
-                count += 1
-                break
-            else:
-                count += 1
-                break
+        if (x > 0):
+            positive_number_count += 1
+            count += 1
+        else:
+            count += 1
     num_list[len(num_list) - 1] = positive_number_count
     return num_list
 
@@ -121,7 +118,7 @@ def ultimate_analysis(num_list):
         'length': len(num_list)
     }
     return numdict
-print(ultimate_analysis([52,13,9,-22]))
+print(ultimate_analysis([52,13,14,-22]))
 
 # 9) Reverse List - Create a function that takes a list and return that list with values reversed. Do this without creating a second list. (This challenge is known to appear during basic technical interviews.)
 #Example: reverse_list([37,2,1,-9]) should return [-9,1,2,37]
@@ -129,7 +126,7 @@ def reverse_list(num_list):
     temp = 0
     count = 0
     for x in num_list:
-        if (len(num_list) // 2 > count):
+        if (len(num_list) / 2 > count):
             temp = num_list[len(num_list) - 1 - count]
             num_list[len(num_list) - 1 - count] = x
             num_list[0 + count] = temp
