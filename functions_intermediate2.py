@@ -4,26 +4,41 @@
 # In the sports_directory, change 'Messi' to 'Andres'
 # Change the value 20 in z to 30
 
-x = [ [5,2,3], [15,8,9] ] 
+x = [ [5,2,3], [10,8,9] ] 
 students = [
-    {'first_name':  'Michael', 'last_name' : 'Bryant'},
+    {'first_name':  'Michael', 'last_name' : 'Jordan'},
     {'first_name' : 'John', 'last_name' : 'Rosales'}
 ]
 sports_directory = {
     'basketball' : ['Kobe', 'Jordan', 'James', 'Curry'],
-    'soccer' : ['Andres', 'Ronaldo', 'Rooney']
+    'soccer' : ['Messi', 'Ronaldo', 'Rooney']
 }
-z = [ {'x': 10, 'y': 30} ]
+z = [ {'x': 10, 'y': 20} ]
+
+x[1][0] = 15
+print(x)
+students[0]['last_name'] = 'Bryant'
+print(students)
+sports_directory['soccer'][0] = 'Andres'
+print(sports_directory)
+z[0]['y'] = 30
+print(z)
 
 # 2) Iterate Through a List of Dictionaries
 # Create a function iterateDictionary(some_list) that, given a list of dictionaries,
 # the function loops through each dictionary in the list and prints each key and the associated value.
 # For example, given the following list:
 def iterateDictionary(some_list):
-
-    for dic in some_list:
-        for key,val in dic.items():
-            print(f'{key} - {val}')
+    for member in some_list:
+        memberFirst = ''
+        memberLast = ''
+        for key,val in member.items():
+            count = 0
+            if (count == 0):
+                memberFirst = f'{key} - {val}'
+            else:
+                memberLast = f'{key} - {val}'
+            print(memberFirst + "," + memberLast)
 
 myfamily = [{
     "first_name" : "Micheal",
@@ -58,8 +73,8 @@ iterateDictionary(myfamily)
 # For example, iterateDictionary2('first_name', students) should output:
 def iterateDictionary2(key, some_list):
     for x in range(0,len(myfamily),1):
-        temp_dic = myfamily[x]
-        print(temp_dic[key])
+        temp_dict = myfamily[x]
+        print(temp_dict[key])
 myfamily = [{
     "first_name" : "Micheal",
     "last_name" : "Jordan"
@@ -84,14 +99,24 @@ iterateDictionary2("last_name", myfamily)
 # Create a function printInfo(some_dict) that given a dictionary whose values are all lists,
 # prints the name of each key along with the size of its list, 
 # and then prints the associated values within each key's list. For example:
-def printInfo(dojo):
-   for key in enumerate(dojo):
-    print(f'{len(dojo[key])} {key.upper()}')
-    for x in dojo[key]:
-        print(x)
+def printInfo(dict):
+    locationCount = 0
+    instructorCount = 0
+    for key, val in dict.items():
+        if (key == 'locations'):
+            locationCount = len(val)
+            print(locationCount)
+            for place in dict['locations']:
+                print(place)
+        else:
+            instructorCount = len(val)
+            print(f"\n{instructorCount}")
+            for person in dict['instructors']:
+                print(person)
+
 dojo = {
-   'locations': ['San Jose', 'Seattle', 'Dallas', 'Chicago', 'Tulsa', 'DC', 'Burbank'],
-   'instructors': ['Michael', 'Amy', 'Eduardo', 'Josh', 'Graham', 'Patrick', 'Minh', 'Devon']
+    'locations': ['San Jose', 'Seattle', 'Dallas', 'Chicago', 'Tulsa', 'DC', 'Burbank'],
+    'instructors': ['Michael', 'Amy', 'Eduardo', 'Josh', 'Graham', 'Patrick', 'Minh', 'Devon']
 }
 printInfo(dojo)
 
