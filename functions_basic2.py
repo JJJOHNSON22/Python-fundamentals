@@ -30,14 +30,15 @@ print(output)
 
 # 3) First Plus Length - Create a function that accepts a list and returns the sum of the first value in the list plus the list's length.
 #Example: first_plus_length([1,2,3,4,5]) should return 6 (first value: 1 + length: 5)
-def first_plus_length(num_list, num_sum):
-    for x in num_list:
-        num_sum += x
+def first_plus_length(num_list):
+    length = len(num_list)
+    firstNum = num_list[0]
+    num_sum = length + firstNum
     return num_sum
 
-num_sum = 0
 num_list = [1,2,3,4,5]
-output = first_plus_length(num_list, num_sum)
+output = first_plus_length(num_list)
+print(output)
 
 
 # 4) Values Greater than Second - Write a function that accepts
@@ -60,10 +61,7 @@ def values_greater_than_second(number_list):
 
 number_list = [9,3,5,1,7,0,2,6]
 output1 = values_greater_than_second(number_list)
-number_list = [27]
-output2 = values_greater_than_second(number_list)
 print(output1)
-print(output2)
 
 # 5) This Length, That Value - Write a function that accepts two integers as parameters: size and value. 
 # The function should create and return a list whose length is equal to the given size, and whose values are all the given value.
